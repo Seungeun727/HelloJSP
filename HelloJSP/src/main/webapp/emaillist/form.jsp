@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Emaillist</title>
+<title>Emaillist(Model 1) 가입<</title>
 </head>
 <body>
 	<h1>메일링 리스트 가입(Model 1)</h1>
