@@ -22,5 +22,5 @@
 	dao.insert(vo);
 	
 	// index.jsp로 리다이렉트(페이지 전환: 302)
-	response.sendRedirect(request.getContentType() + "/emaillist/");
+	response.sendRedirect(request.getContextPath() + "/emaillist/");
 %>
