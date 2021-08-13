@@ -3,6 +3,7 @@ package com.example.emaillist.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -84,14 +85,68 @@ public class EmaillistDaoImpl implements EmaillistDao {
 
 	@Override
 	public int insert(EmailVo vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		int count = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = getConnection();
+			
+			// 실행 계획
+			String sql = "INSERT INTO emaiillist " +
+					"(no, last_name, first_name, email) " +
+					"VALUES(seq_emaillist_pk.NEXTVAL, ?, ?, ?)";
+			
+			pstmt = conn.prepareStatement(sql);
+			// 파라미터 바인딩
+			pstmt.setString(1,  vo.getLastName());
+			pstmt.setString(2, vo.getFirstName());
+			pstmt.setString(3, vo.getEmail());
+			
+			// 쿼리 수행
+			count = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return count;
 	}
 
 	@Override
 	public int delete(Long pk) {
-		// TODO Auto-generated method stub
-		return 0;
+		int deletedCount = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			conn = getConnection();
+			
+			String sql ="DELETE FROM emaillist WHERER no = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setLong(1, pk);
+			
+			// 쿼리 수행
+			deletedCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return deletedCount;
 	}
 
 }
