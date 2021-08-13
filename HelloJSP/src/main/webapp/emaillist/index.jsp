@@ -1,13 +1,14 @@
-<%@page import="java.util.List"%>
+
 <%@page import="com.example.emaillist.vo.EmailVo"%>
-<%@page import="com.example.emaillist.dao.EmaillistDao"%>
+<%@page import="java.util.List"%>
 <%@page import="com.example.emaillist.dao.EmaillistDaoImpl"%>
+<%@page import="com.example.emaillist.dao.EmaillistDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 EmaillistDao dao = new EmaillistDaoImpl();
 //이메일 리스트 받아오기
-List<EmaillistDaoImpl> list = dao.getlist();
+List<EmailVo> list = dao.getlist();
 %>
 <!DOCTYPE html>
 <html>
@@ -20,9 +21,7 @@ List<EmaillistDaoImpl> list = dao.getlist();
 	
 	<!-- 이메일 리스트: 목록 -->
 	<!-- 루프 시작 -->
-	<% for (EmailVo vo: list){
-		%>
-	}
+	<% for (EmailVo vo: list) { %>
     <table border="1">
     	<!-- 행 -->
     	<tr>
@@ -43,5 +42,11 @@ List<EmaillistDaoImpl> list = dao.getlist();
     <br />
     <% } %>
     <!-- 루프 끝 -->
+    
+    
+    <!-- 작성 폼으로 이동 -->
+    <p>
+     <a href="<%= request.getContextPath() %>/emaillist/form.jsp">추가 이메일 등록</a>
+    </p>
 </body>
 </html>
