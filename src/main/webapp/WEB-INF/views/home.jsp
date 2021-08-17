@@ -11,6 +11,9 @@
 	<h3>Hello HTML</h3>
 	<p>이것은 노승은이 만든 첫 번째 HTML 입니다</p>
 	
+	<ul>
+		<li><a href="<%= request.getContextPath() %>/users?a=joinform">회원가입</a><li>
+	</ul>
 	<h4>GET 전송</h4>
 	<!-- 
 	- URL로 데이터 전송
