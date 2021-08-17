@@ -49,7 +49,6 @@ List<EmailVo> list = (List<EmailVo>)request.getAttribute("list");
 	<br />
 	<% } %>
 	<!-- 루프의 끝 -->
-	   
 	
 	<!-- 작성 폼으로 이동 -->
 	<p>

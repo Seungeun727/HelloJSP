@@ -76,7 +76,7 @@ public class EmaillistServlet  extends HttpServlet {
 			Long no = Long.valueOf(req.getParameter("no"));
 			
 			EmaillistDao dao = new EmaillistDaoImpl();
-			int deleteCount = dao.delte(no);
+			int deleteCount = dao.delete(no);
 			
 			// 리스트 페이지로 리다이렉트
 		    resp.sendRedirect(req.getContextPath() + "/el");
