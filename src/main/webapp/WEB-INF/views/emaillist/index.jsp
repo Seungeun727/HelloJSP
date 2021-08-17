@@ -48,10 +48,11 @@ List<EmailVo> list = (List<EmailVo>)request.getAttribute("list");
 	<br />
 	<% } %>
 	<!-- 루프의 끝 -->
+	   
 	
 	<!-- 작성 폼으로 이동 -->
 	<p>
-		<a href="<%= request.getContextPath() %>/emaillist/form.jsp">추가 이메일 등록</a>
+		<a href="<%= request.getContextPath() %>/el?a=/form.jsp">추가 이메일 등록</a>
 	</p>
 	
 </body>
