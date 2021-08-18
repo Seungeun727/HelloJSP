@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:include page="/WEB-INF/views/includes/header.jsp">
+	<jsp:params value="로그인" name="message" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,5 +20,4 @@
 		<input type="password" name="password" id="password" /><br />
 		<input type="submit" value="로그인" />
 	</form>
-</body>
-</html>
+<%@ include file="/WEB-INF/views/includes/footer.jsp"%> 
